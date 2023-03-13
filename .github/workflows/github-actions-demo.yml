@@ -20,9 +20,9 @@ jobs:
         run: composer install
       - name: Create artifact
         run: rm .gitignore
-        run: cp deploy-files/gitignore .gitignore
-        run: git checkout artifact
-        run: git add .
-        run: git commit -m "${{ github.ref }}"
-        run: git push origin artifact
+      - run: cp deploy-files/gitignore .gitignore
+      - run: git checkout artifact
+      - run: git add .
+      - run: git commit -m "${{ github.ref }}"
+      - run: git push origin artifact
 

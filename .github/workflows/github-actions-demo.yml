@@ -18,3 +18,11 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Run composer install
         run: composer install
+      - start: Create artifact
+        run: rm .gitignore
+        run: cp deploy-files/gitignore .gitignore
+        run: git checkout artifact
+        run: git add .
+        run: git commit -m "${{ github.ref }}"
+        run: git push origin artifact
+

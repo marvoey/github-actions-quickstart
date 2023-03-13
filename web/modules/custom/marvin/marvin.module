@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Marvin module.
+ */
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function marvin_field_widget_paragraphs_form_alter(&$element, \Drupal\Core\Form\FormStateInterface $form_state, $context) {
+ if ($element['#paragraph_type'] == 'card') {
+   $subform = $element['subform'];
+   $subform['field_card_list']['#attributes']['state-id'] = 'marvin';
+   $subform['field_card_body']['#state'] = [
+     'visible' => [
+       // Don't mistake :input for the type of field or for a css selector --
+       // it's a jQuery selector.
+       // You can always use :input or any other jQuery selector here, no matter
+       // whether your source is a select, radio or checkbox element.
+       'select[name="field_article_cards[0][subform][field_card][0][subform][field_card_list][]"]' => ['value' => 'one'],
+     ],
+   ];
+   $element['subform'] = $subform;
+   $stop = true;
+ }
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function marvin_field_widget_form_alter(&$element, \Drupal\Core\Form\FormStateInterface $form_state, $context) {
+  $stop = true;
+}

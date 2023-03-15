@@ -1,0 +1,16 @@
+# Set the following ports public
+ports:
+  - port: 6942
+    onOpen: ignore
+  - port: 8080
+  - port: 8025
+    onOpen: ignore
+  - port: 8026
+    onOpen: ignore
+  - port: 8036
+    onOpen: ignore
+  - port: 8037
+    onOpen: ignore
+  - port: 8443
+    onOpen: ignore
+  - port: 9999

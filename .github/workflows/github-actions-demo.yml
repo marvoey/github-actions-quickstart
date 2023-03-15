@@ -28,3 +28,7 @@ jobs:
         run: git status
       - name: Check git branches
         run: git branch -a
+        run: git checkout artifact
+        run: git add .
+        run: git commit -m "build artifact"
+        run: git push origin artifact

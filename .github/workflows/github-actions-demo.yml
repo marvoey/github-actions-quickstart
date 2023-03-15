@@ -30,5 +30,7 @@ jobs:
         run: git branch -a
       - run: git checkout artifact
       - run: git add .
+      - run: git config --global user.email "github@actions.com"
+      - run: git config --global user.name "Automated build by Github actions"
       - run: git commit -m "build artifact"
       - run: git push origin artifact

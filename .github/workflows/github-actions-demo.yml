@@ -20,5 +20,9 @@ jobs:
         run: composer install
       - name: Create artifact
         run: rm .gitignore
-      - run: cp deploy-files/gitignore .gitignore
-      - run: git status
+      - name: Add the vendor dir
+        run: cp deploy-files/gitignore .gitignore
+      - name: Check git status
+        run: git status
+      - name: Check git branches
+        run: git branch -a
